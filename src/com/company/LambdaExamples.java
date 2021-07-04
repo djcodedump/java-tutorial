@@ -2,8 +2,26 @@ package com.company;
 
 import java.util.Comparator;
 
-//Lambda expression used for implementing single method interfaces
+//Lambda expression can implement interfaces with a single abstract method
+//The interface can have as many default or static methods
+//such an interface is called a 'functional interface' (Comparator, Runnable, ActionListener etc.)
+//Lambda expressions are stateless, i.e. they cannot have any member variables
+
 public class LambdaExamples {
+
+    interface MyFunction {
+        public void apply();
+    }
+
+    interface MyAnotherFunction {
+        public void printThis(String text);
+    }
+
+    interface MyAnotherFunction2 {
+        public void printThis(String text1, String text2);
+    }
+
+    static String stStr = "static variable";
 
     public static void main(String[] args) {
 
@@ -27,7 +45,33 @@ public class LambdaExamples {
 
         Comparator<String> myComparatorLambda2 =
                 (o1, o2) ->  o1.compareTo(o2);
-        System.out.println("myComparatorLambda2: "+ myComparatorLambda2.compare("hello World", "hello"));
+        System.out.println("myComparatorLambda2: " + myComparatorLambda2.compare("hello World", "hello"));
 
+        MyFunction myFunction =
+                () -> System.out.println("hello world");
+
+        myFunction.apply();
+
+        callMe(myFunction);
+
+        MyAnotherFunction myAnotherFunction =
+                text -> System.out.println(text);
+        myAnotherFunction.printThis("Hello another function");
+
+        final String str = "My name is ";
+
+        MyAnotherFunction2 myAnotherFunction2 = (text1, text2) -> System.out.println(str + text1 + " " + text2
+        +", and this is " + stStr);
+        myAnotherFunction2.printThis("Debajyoti", "Nath");
+
+        stStr ="changed value of static variable";
+
+        myAnotherFunction2.printThis("Debajyoti", "Nath");
+
+    }
+
+    static void callMe(MyFunction myFunc){
+        System.out.println("Called from 'callMe'");
+        myFunc.apply();
     }
 }
