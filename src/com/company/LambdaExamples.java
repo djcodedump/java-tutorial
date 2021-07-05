@@ -2,10 +2,12 @@ package com.company;
 
 import java.util.Comparator;
 
-//Lambda expression can implement interfaces with a single abstract method
+//Lambda expression can implement interfaces with a single abstract method (SAM interface)
 //The interface can have as many default or static methods
 //such an interface is called a 'functional interface' (Comparator, Runnable, ActionListener etc.)
 //Lambda expressions are stateless, i.e. they cannot have any member variables
+//Many functional interfaces to be used with Lambda expressions are in package
+// java.util.function
 
 public class LambdaExamples {
 
@@ -67,7 +69,6 @@ public class LambdaExamples {
         stStr ="changed value of static variable";
 
         myAnotherFunction2.printThis("Debajyoti", "Nath");
-
     }
 
     static void callMe(MyFunction myFunc){
