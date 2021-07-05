@@ -3,14 +3,18 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class StreamsApiExamples {
 
     public static void main(String[] args) {
         //test1();
-        test2();
+        //test2();
+        //test3();
+        test4();
     }
 
     static void test1(){
@@ -40,21 +44,75 @@ public class StreamsApiExamples {
         System.out.println(i * 2);
     }
 
-    static void test2(){
-        List<Integer> list = new ArrayList<>();
+    static void test2() {
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6);
 
-        for (int i = 0; i <= 100; i++) {
-            list.add(Integer.valueOf(i));
+        Function<Integer, Integer> f = new Function<Integer, Integer>() {
+            @Override
+            public Integer apply(Integer i) {
+                return i * 2;
+            }
+        };
+
+        BinaryOperator<Integer> b = new BinaryOperator<Integer>() {
+            @Override
+            public Integer apply(Integer i, Integer j) {
+                return i + j;
+            }
+        };
+
+        System.out.println(list.stream().map(f).reduce(0, b));
+
+        System.out.println(list.stream().map(i -> i * 2).reduce(0, (c, e) -> c + e));
+
+        System.out.println(list.stream().map(i -> i * 2).reduce(0, Integer::sum));
+    }
+
+    static void test3() {
+        List<Integer> list = Arrays.asList(12, 20, 35, 46, 55, 68, 75);
+
+        Integer result = 0;
+        for(Integer i : list){
+            if(i%5 == 0){
+                result += i;
+            }
         }
+        System.out.println(result);
 
-        //list.stream().forEach(System.out::println);
+        System.out.println(list.stream()
+                                .filter(i -> i % 5 == 0)
+                                .reduce(0, Integer::sum));
 
-        list.stream().filter(i -> {
-            System.out.println("hi");
-            return true;
-        }).findFirst();
 
-        //list.stream().filter(i->(i%2)==0).forEach(System.out::println);
+        List<Integer> list2 = Arrays.asList(20, 88, 99);
 
+        System.out.println(list2.stream()
+                                    .filter(i -> i % 5 == 0)
+                                    .map(i -> i * 2)
+                                    .findFirst()
+                                    .orElse(0));
+
+
+    }
+
+    static void test4(){
+        List<Integer> list = Arrays.asList(12, 20, 35, 46, 55, 68, 75);
+
+        System.out.println(list.stream()
+                .filter(StreamsApiExamples::isDivisibleByFive)
+                .map(StreamsApiExamples::mapDouble)
+                .findFirst()
+                .orElse(0));
+
+    }
+
+    static boolean isDivisibleByFive(int i){
+        System.out.println("in isDivisibleByFive: " + i);
+        return i % 5 ==0;
+    }
+
+    static int mapDouble(int i){
+        System.out.println("in mapDouble: "+ i);
+        return i * 2;
     }
 }
