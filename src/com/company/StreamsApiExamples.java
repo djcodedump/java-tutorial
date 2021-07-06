@@ -11,6 +11,9 @@ import java.util.stream.Stream;
 public class StreamsApiExamples {
 
     public static void main(String[] args) {
+
+        int num = 89_3_42;
+
         //test1();
         //test2();
         //test3();
