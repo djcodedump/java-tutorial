@@ -1,8 +1,8 @@
-package com.company;
+package com.ex.date_time_examples;
 
 import java.time.*;
 
-public class DateTimeExamples {
+public class Main {
     public static void main(String[] args) {
 
         LocalDate d1 = LocalDate.now();

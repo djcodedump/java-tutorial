@@ -1,4 +1,4 @@
-package com.company;
+package com.ex.lambda_examples;
 
 import java.util.Comparator;
 
@@ -9,7 +9,7 @@ import java.util.Comparator;
 //Many functional interfaces to be used with Lambda expressions are in package
 // java.util.function
 
-public class LambdaExamples {
+public class Main {
 
     interface MyFunction {
         public void apply();

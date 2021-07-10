@@ -1,4 +1,4 @@
-package com.company;
+package com.ex.methodreference_examples;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +25,7 @@ class MyPrinter{
     }
 }
 
-public class MethodReferenceExamples {
+public class Main {
 
     public static void main(String[] args) {
 

@@ -1,11 +1,11 @@
-package com.company;
+package com.ex.generics_examples;
 
 import java.io.Serializable;
 import java.sql.Array;
 import java.util.*;
 
 class Container<T extends Number> {
-    T value;
+    private T value;
 
     public T getValue() {
         return value;
@@ -22,14 +22,34 @@ class Container<T extends Number> {
     public void demo2(ArrayList<? super T> list){
 
     }
+
+    public <Z> Z noOp(Z val){
+        return  val;
+    }
+
+    /*
+    To get data from (list.get) > use extends
+    To put data into (list.add) -> use super
+     */
+    public void  copy(List<? extends T> src, List<? super T> dest){
+
+    }
+
+    /*
+    <?> is a raw type, it basically means <? extends Object>
+     */
+    public void reverse (List<?> src){
+
+    }
+
 }
 
-public class CollectionAndGenericExamples {
+
+public class Main {
 
     public static void main(String[] args) {
         test1();
-        //test2();
-
+        test2();
     }
 
     static void test1(){
@@ -39,12 +59,16 @@ public class CollectionAndGenericExamples {
 
         con.demo2(new ArrayList<Serializable>());
 
+    }
+
+
+
+    static void test2(){
         List<Integer> list1 = Arrays.asList(123,321,542);
 
         Collections.sort(list1, (o1, o2) -> (o1%10 - o2%10));
 
         list1.forEach(System.out::println);
-
 
         List<Integer> list2 = new ArrayList<>()
         {{
@@ -54,22 +78,5 @@ public class CollectionAndGenericExamples {
         }};
 
         list2.forEach(x -> System.out.println(x));
-    }
-
-    static void test2(){
-
-        Map<String, String> map = new HashMap<>();
-        map.put("name1", "Deba");
-        map.put("name2", "Dip");
-        map.put("name3", "Sumit");
-
-        for(String key : map.keySet()){
-            System.out.println(map.get(key));
-        }
-
-        for(Map.Entry<String, String> entry : map.entrySet()){
-            System.out.println(entry.getKey() +"|" + entry.getValue());
-        }
-
     }
 }

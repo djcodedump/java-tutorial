@@ -1,4 +1,4 @@
-package com.company;
+package com.ex.streamapi_examples;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-public class StreamsApiExamples {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -40,7 +40,7 @@ public class StreamsApiExamples {
 
         //using method reference (call by method)
         list.forEach(System.out::println);
-        list.forEach(StreamsApiExamples::doubleit);
+        list.forEach(Main::doubleit);
 
     }
     static void doubleit(int i){
@@ -102,8 +102,8 @@ public class StreamsApiExamples {
         List<Integer> list = Arrays.asList(12, 20, 35, 46, 55, 68, 75);
 
         System.out.println(list.stream()
-                .filter(StreamsApiExamples::isDivisibleByFive)
-                .map(StreamsApiExamples::mapDouble)
+                .filter(Main::isDivisibleByFive)
+                .map(Main::mapDouble)
                 .findFirst()
                 .orElse(0));
 
