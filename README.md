@@ -1,3 +1,3 @@
 ##  Java Tutorial
 
-An Intellij IDEA Project to learn about various features of Java 11.
+An Intellij IDEA Project to learn about various features of Java 8.

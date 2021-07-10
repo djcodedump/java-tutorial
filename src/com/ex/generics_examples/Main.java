@@ -61,8 +61,6 @@ public class Main {
 
     }
 
-
-
     static void test2(){
         List<Integer> list1 = Arrays.asList(123,321,542);
 
