@@ -18,7 +18,7 @@ public class Container<T, C> {
     private C name;
 
     //cannot have a static generic type field
-    //private static T member;
+    //private static T member; // doesn't compile
 
     public Container(T val, C name) {
         this.val = val;

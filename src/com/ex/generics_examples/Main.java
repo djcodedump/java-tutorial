@@ -26,11 +26,10 @@ The T in Foo<T> is a type parameter and the String in Foo<String> is a type argu
 Generics not compatible with primitives
 You cannot write: List<int> lst = new ArrayList<>();
 
-Arrays do not support generics, because arrays are covariant
+Array is covariant but generic Collection is invariant
 .i.e. an array of supertype references is a supertype of an
  array of subtype references
  Object[] is a supertype of String[]
- But collections are invariant
  List<Object> is not a supertype of List<String>
 
 Conventions:
@@ -82,5 +81,6 @@ public class Main {
         }};
 
         list2.forEach(System.out::println);
+
     }
 }
