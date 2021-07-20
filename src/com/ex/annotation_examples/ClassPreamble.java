@@ -5,6 +5,7 @@ import java.lang.annotation.*;
 // meta-annotations apply to other annotations
 //using @Documented make the information in the annotation definition appear in javadoc
 @Documented
+@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE,ElementType.METHOD})
 public @interface ClassPreamble {

@@ -8,6 +8,7 @@ import java.util.Collections;
 
 /*Annotations are a form of metadata that provide data about a program that is
 not part of the program itself
+There are 10 in-built annotations
 Annotations can be applied to declarations:
 declarations of classes, fields, methods, and other program elements
 Annotations can also be applied to the use of types (type annotation)
@@ -72,5 +73,4 @@ public class Main {
     interface C {
         public void trythis();
     }
-
 }
