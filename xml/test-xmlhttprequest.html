@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<body>
+    <!--All modern browsers have a built-in XMLHttpRequest object to request
+            data from a server-->
+    <h2>Using the XMLHttpRequest Object</h2>
+    <div id="demo1">
+        <button onclick="loadXMLDoc()" type="button">Change Content</button>
+    </div>
+    <br />
+
     <script language="JavaScript">
 
         function loadXMLDoc() {
@@ -17,36 +25,8 @@
             xhttp.send();
         }
 
-        function parseXMLDoc() {
-            var text = "<bookstore>" +
-                "<book>" +
-                "<title language='en'>Everyday Italian</title>" +
-                "<author>Giada De Laurentiis</author>" +
-                "<year>2005</year>" +
-                "</book>" +
-                "</bookstore>";
-
-            var parser = new DOMParser();
-            var xmlDoc = parser.parseFromString(text, "text/xml");
-            console.log(xmlDoc);
-            console.log(xmlDoc.getElementsByTagName("title")[0].attributes[0]);
-            document.getElementById("demo2").innerHTML = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
-        }
-
     </script>
-</head>
 
-<body>
-    <!--All modern browsers have a built-in XMLHttpRequest object to request
-        data from a server-->
-    <h2>Using the XMLHttpRequest Object</h2>
-    <div id="demo1">
-        <button type="button" onclick="loadXMLDoc()">Change Content</button>
-    </div>
-    <br />
-    <div id="demo2">
-        <button type="button" onclick="parseXMLDoc()">Load and parse XML</button>
-    </div>
 </body>
 
 </html>
