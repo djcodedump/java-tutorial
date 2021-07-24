@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+     DTD (Document Type Definition) and XSD (XML Schema Definition) are the grammar for XML
+     DTD defines the structure of an XML document
+     XSD defines the structure as well as the data of an XML document
+     XML Namespaces provide a method to avoid element name conflicts
+     XPath can be used to navigate through elements and attributes in an XML document
+     With XSLT you can transform an XML document into HTML
+     XQuery was designed to query XML data
+     XLink is used to create hyperlinks in XML documents
+     XPointer allows links to point to specific parts of an XML document
+-->
+<bookstore>
+    <book category="cooking">
+        <title lang="en">Everyday Italian</title>
+        <author>Giada De Laurentiis</author>
+        <year>2005</year>
+        <price>30.00</price>
+    </book>
+    <book category="children">
+        <title lang="en">Harry Potter</title>
+        <author>J K. Rowling</author>
+        <year>2005</year>
+        <price>29.99</price>
+    </book>
+    <book category="web">
+        <title lang="en">XQuery Kick Start</title>
+        <author>James McGovern</author>
+        <author>Per Bothner</author>
+        <author>Kurt Cagle</author>
+        <author>James Linn</author>
+        <author>Vaidyanathan Nagarajan</author>
+        <year>2003</year>
+        <price>49.99</price>
+    </book>
+    <book category="web">
+        <title lang="en">Learning XML</title>
+        <author>Erik T. Ray</author>
+        <year>2003</year>
+        <price>39.95</price>
+    </book>
+</bookstore>
