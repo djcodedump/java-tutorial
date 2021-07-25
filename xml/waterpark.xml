@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="waterpark.xsl"?>
+<waterpark>
+    <sliders>
+        <slider>Outdoor slider</slider>
+    </sliders>
+    <plants>
+        <plant water="not much">Cactus</plant>
+        <plant water="some water">Coconut Palm</plant>
+        <plant water="a lot">grass</plant>
+    </plants>
+</waterpark>

@@ -2,11 +2,16 @@
 <html>
 
 <body>
-<!-- 
+    <!-- 
     According to the XML DOM, everything in an XML document is a node
+    Text of an element node is stored in a text node
 -->
-    <div id="demo2">
+    <div id="demo1">
         <button onclick="parseXMLDoc()" type="button">Load and parse XML</button>
+    </div>
+    <br />
+    <div id="demo2">
+        <button onclick="loadAndTraverse()" type="button">Load and traverse XML</button>
     </div>
 
     <script language="JavaScript">
@@ -24,7 +29,33 @@
             var xmlDoc = parser.parseFromString(text, "text/xml");
             console.log(xmlDoc);
             console.log(xmlDoc.getElementsByTagName("title")[0].attributes[0]);
-            document.getElementById("demo2").innerHTML = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            document.getElementById("demo1").innerHTML = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+        }
+
+        function loadAndTraverse() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this.responseXML);
+                }
+            };
+            xhttp.open("GET", "bookstore.xml", true);
+            xhttp.send();
+        }
+
+        function myFunction(xmlDoc) {
+            console.log(xmlDoc);
+            var bookNodes = xmlDoc.documentElement.childNodes;
+            console.log(bookNodes);
+
+
+            for (i = 0; i < bookNodes.length; i++) {
+                if(bookNodes[i].nodeType == 1){
+                    console.log(bookNodes[i].nodeName);
+
+                    console.log(bookNodes[i].childNodes[1].childNodes[0].nodeValue);
+                }
+            }
         }
 
     </script>

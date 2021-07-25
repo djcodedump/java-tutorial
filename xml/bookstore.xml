@@ -4,12 +4,19 @@
      DTD defines the structure of an XML document
      XSD defines the structure as well as the data of an XML document
      XML Namespaces provide a method to avoid element name conflicts
-     XPath can be used to navigate through elements and attributes in an XML document
-     With XSLT you can transform an XML document into HTML
-     XQuery was designed to query XML data
+
+     XSLT used for transforming XML documents
+     XPath used for navigating XML documents
+     XPath uses path expressions to select nodes or node-sets in an XML document
+     An XPath expression returns either a node-set, a string, a Boolean, or a number
+     In XPath, there are seven kinds of nodes:
+     element, attribute, text, namespace, processing-instruction, comment, and document nodes
+
+     XQuery used for querying XML documents
      XLink is used to create hyperlinks in XML documents
      XPointer allows links to point to specific parts of an XML document
 -->
+<?xml-stylesheet type="text/xsl" href="bookstore.xsl"?>
 <bookstore>
     <book category="cooking">
         <title lang="en">Everyday Italian</title>
