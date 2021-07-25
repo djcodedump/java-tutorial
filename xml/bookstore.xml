@@ -16,7 +16,8 @@
      XLink is used to create hyperlinks in XML documents
      XPointer allows links to point to specific parts of an XML document
 -->
-<?xml-stylesheet type="text/xsl" href="bookstore.xsl"?>
+<!--<?xml-stylesheet type="text/xsl" href="bookstore1.xsl"?>-->
+<?xml-stylesheet type="text/xsl" href="bookstore2.xsl"?>
 <bookstore>
     <book category="cooking">
         <title lang="en">Everyday Italian</title>
@@ -45,5 +46,11 @@
         <author>Erik T. Ray</author>
         <year>2003</year>
         <price>39.95</price>
+    </book>
+    <book category="children">
+        <title lang="en">Lord of the Rings</title>
+        <author>R R. Tolkien</author>
+        <year>2005</year>
+        <price>25.99</price>
     </book>
 </bookstore>
