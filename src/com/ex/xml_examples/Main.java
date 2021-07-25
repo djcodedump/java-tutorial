@@ -1,4 +1,4 @@
-package com.ex;
+package com.ex.xml_examples;
 
 import org.w3c.dom.Document;
 
@@ -10,7 +10,7 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.util.Properties;
 
-public class xml_examples {
+public class Main {
     public static void main(String[] args) throws Exception{
 
         StreamSource sourceXml =  new StreamSource(new File("xml/bookstore.xml"));
