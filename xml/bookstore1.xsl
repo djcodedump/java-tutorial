@@ -72,6 +72,7 @@ A template contains rules to apply when a specified node is matched
                         </tr>
                     </xsl:for-each>
                 </table>
+
             </body>
         </html>
 

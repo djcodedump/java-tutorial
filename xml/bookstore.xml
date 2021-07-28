@@ -1,23 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-     DTD (Document Type Definition) and XSD (XML Schema Definition) are the grammar for XML
-     DTD defines the structure of an XML document
-     XSD defines the structure as well as the data of an XML document
+     DTD (Document Type Definition) is the grammar for XML
+
+     XSD (XML Schema Definition) is an XML-based alternative to DTD
+     Some built-in data types:
+      xs:string
+      xs:decimal
+      xs:integer
+      xs:boolean
+      xs:date
+      xs:time
+
      XML Namespaces provide a method to avoid element name conflicts
+     XML Schemas supports data types
 
      XSLT used for transforming XML documents
+
      XPath used for navigating XML documents
      XPath uses path expressions to select nodes or node-sets in an XML document
      An XPath expression returns either a node-set, a string, a Boolean, or a number
      In XPath, there are seven kinds of nodes:
-     element, attribute, text, namespace, processing-instruction, comment, and document nodes
+     element, attribute, text, namespace, processing-instruction, comment, and document(root)
 
      XQuery used for querying XML documents
+     FLWOR (pronounced "flower") is an acronym for "For, Let, Where, Order by, Return"
+        For - selects a sequence of nodes
+        Let - binds a sequence to a variable
+        Where - filters the nodes
+        Order by - sorts the nodes
+        Return - what to return (gets evaluated once for every node)
+
+        for $x in doc("bookstore.xml")/bookstore/book
+        where $x/price>30
+        order by $x/title
+        return {data($x/title)}
+
+        for $x in doc("bookstore.xml")/bookstore/book
+        return if ($x/@category="children")
+        then <child>{data($x/title)}</child>
+        else <adult>{data($x/title)}</adult>
+
      XLink is used to create hyperlinks in XML documents
      XPointer allows links to point to specific parts of an XML document
 -->
-<!--<?xml-stylesheet type="text/xsl" href="bookstore1.xsl"?>-->
-<?xml-stylesheet type="text/xsl" href="bookstore2.xsl"?>
+<!--
+The line xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" in an xml
+tells the XML parser that this document should be validated against a schema.
+The line: xsi:noNamespaceSchemaLocation="bookstore.xsd"
+specifies WHERE the schema resides
+-->
+
+<?xml-stylesheet type="text/xsl" href="bookstore1.xsl"?>
 <bookstore>
     <book category="cooking">
         <title lang="en">Everyday Italian</title>
