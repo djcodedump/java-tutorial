@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
      DTD (Document Type Definition) is the grammar for XML
 
      XSD (XML Schema Definition) is an XML-based alternative to DTD
@@ -49,7 +48,6 @@ tells the XML parser that this document should be validated against a schema.
 The line: xsi:noNamespaceSchemaLocation="bookstore.xsd"
 specifies WHERE the schema resides
 -->
-
 <?xml-stylesheet type="text/xsl" href="bookstore1.xsl"?>
 <bookstore>
     <book category="cooking">

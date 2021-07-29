@@ -9,7 +9,7 @@ A template contains rules to apply when a specified node is matched
         <html>
             <body>
                 <h1>All Book collection</h1>
-                <table border="1">
+                <table Border="1">
                     <tr bgcolor="orange">
                         <th>Book</th><th>Category</th><th>Author</th><th>Year</th><th>Price</th>
                     </tr>
