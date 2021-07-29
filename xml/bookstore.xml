@@ -49,7 +49,10 @@ The line: xsi:noNamespaceSchemaLocation="bookstore.xsd"
 specifies WHERE the schema resides
 -->
 <?xml-stylesheet type="text/xsl" href="bookstore1.xsl"?>
-<bookstore>
+<bookstore
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="bookstore.xsd">
+
     <book category="cooking">
         <title lang="en">Everyday Italian</title>
         <author>Giada De Laurentiis</author>
@@ -84,4 +87,5 @@ specifies WHERE the schema resides
         <year>2005</year>
         <price>25.99</price>
     </book>
+
 </bookstore>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs ="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="bookstore" type="bookstoreType"/>
+
+    <xs:complexType name="bookstoreType">
+        <xs:sequence>
+            <xs:element name="book" type="bookType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bookType">
+        <xs:sequence>
+            <xs:element name="title" type="titleType"/>
+            <xs:element name="author" type="xs:string" maxOccurs="5"/>
+            <xs:element name="year" type="xs:gYear"/>
+            <xs:element name="price" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="category" type="categoryType" />
+    </xs:complexType>
+
+    <xs:complexType name="titleType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="lang" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="categoryType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="cooking|children|web"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
