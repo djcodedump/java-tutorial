@@ -1,4 +1,4 @@
-package com.ex.generics_examples;
+package com.deb.ex.generics_examples;
 
 public class Pair<K,V> {
     private K key;

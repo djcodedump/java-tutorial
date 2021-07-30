@@ -1,4 +1,4 @@
-package com.ex.annotation_examples;
+package com.deb.ex.annotation_examples;
 
 @ClassPreamble(
         author = "Deba",

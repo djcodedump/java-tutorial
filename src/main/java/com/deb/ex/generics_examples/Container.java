@@ -1,7 +1,5 @@
-package com.ex.generics_examples;
+package com.deb.ex.generics_examples;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

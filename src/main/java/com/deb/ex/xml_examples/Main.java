@@ -1,4 +1,4 @@
-package com.ex.xml_examples;
+package com.deb.ex.xml_examples;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -6,6 +6,9 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
+/**
+ * transforming XML with XSL through Java
+ */
 public class Main {
     public static void main(String[] args) throws Exception{
 

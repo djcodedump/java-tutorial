@@ -1,8 +1,7 @@
-package com.ex.methodreference_examples;
+package com.deb.ex.methodreference_examples;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 interface Parser{
     String parse(String str);

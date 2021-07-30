@@ -1,4 +1,4 @@
-package com.ex.lambda_examples;
+package com.deb.ex.lambda_examples;
 
 import java.util.Comparator;
 
