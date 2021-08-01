@@ -30,9 +30,9 @@ public class Main {
 
         //transformXMLwithXSLT();
 
-        //parseXMLwithDOMParser();
+        parseXMLwithDOMParser();
 
-        createXMLDocument();
+        //createXMLDocument();
     }
 
     private static void createXMLDocument() throws ParserConfigurationException, TransformerException {
@@ -92,16 +92,13 @@ public class Main {
             if (book.getNodeType() == Node.ELEMENT_NODE) {
                 String category = book.getAttributes().getNamedItem("category").getNodeValue();
                 if (!categoryMap.containsKey(category)) {
-                    categoryMap.put(category, new ArrayList<Node>());
+                    List<Node> categoryBooks = new ArrayList<>();
+                    categoryBooks.add(book);
+                    categoryMap.put(category, categoryBooks);
                 }
-            }
-        }
-
-        for (int i = 0; i < books.getLength(); i++) {
-            book = books.item(i);
-            if (book.getNodeType() == Node.ELEMENT_NODE) {
-                String category = book.getAttributes().getNamedItem("category").getNodeValue();
-                categoryMap.get(category).add(book);
+                else{
+                    categoryMap.get(category).add(book);
+                }
             }
         }
 
