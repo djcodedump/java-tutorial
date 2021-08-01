@@ -3,6 +3,7 @@ package com.deb.ex.xml_domparser_examples;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -12,6 +13,10 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -30,12 +35,28 @@ public class Main {
 
         //transformXMLwithXSLT();
 
-        parseXMLwithDOMParser();
+        //parseXMLwithDOMParser();
 
-        //createXMLDocument();
+        //createXMLDocumentWithDOM();
+
+        parseXMLWithXpath();
     }
 
-    private static void createXMLDocument() throws ParserConfigurationException, TransformerException {
+    private static void parseXMLWithXpath() throws IOException, SAXException, ParserConfigurationException,
+            XPathExpressionException {
+
+        DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        Document document = documentBuilder.parse(new File("xml/bookstore.xml"));
+
+        XPath xPath = XPathFactory.newInstance().newXPath();
+        String expression ="/bookstore/book";
+
+        NodeList books = (NodeList) xPath.compile(expression).evaluate(document, XPathConstants.NODESET);
+
+        extractFromNodeList(books);
+    }
+
+    private static void createXMLDocumentWithDOM() throws ParserConfigurationException, TransformerException {
         /*
         <?xml version = "1.0" encoding = "UTF-8" standalone = "no"?>
         <cars>
@@ -79,11 +100,15 @@ public class Main {
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document document = documentBuilder.parse(new File("xml/bookstore.xml"));
 
-        final var root = document.getDocumentElement();
+        Element root = document.getDocumentElement();
         root.normalize();
 
-        final var books = root.getChildNodes();
+        NodeList books = root.getChildNodes();
 
+        extractFromNodeList(books);
+    }
+
+    private static void extractFromNodeList(NodeList books) {
         Node book;
         Map<String, List<Node>> categoryMap = new HashMap<>();
 

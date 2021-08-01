@@ -4,6 +4,8 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +17,46 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) throws IOException, JDOMException {
 
-        parseXMLwithJDOMParser();
+        //parseXMLwithJDOMParser();
+
+        createXMLDocumentWithJDOM();
+    }
+
+    private static void createXMLDocumentWithJDOM() throws IOException {
+        /*
+        <?xml version = "1.0" encoding = "UTF-8" standalone = "no"?>
+        <cars>
+           <supercars company = "Ferrari">
+              <carname type = "formula one">Ferrari 101</carname>
+              <carname type = "sports">Ferrari 202</carname>
+           </supercars>
+        </cars>
+        */
+        Document xmlDocument = new Document();
+
+        Element cars = new Element("cars");
+        xmlDocument.addContent(cars);
+
+        Element supercars = new Element("supercars");
+        supercars.setAttribute("company","Ferrari");
+
+
+        Element carname1 = new Element("carname");
+        carname1.setAttribute("type","formula one");
+        carname1.setText("Ferrari 101");
+
+        Element carname2 = new Element("carname");
+        carname2.setAttribute("type","sports");
+        carname2.setText("Ferrari 202");
+
+        supercars.addContent(carname1);
+        supercars.addContent(carname2);
+
+        cars.addContent(supercars);
+
+        XMLOutputter xmlOutputter = new XMLOutputter();
+        xmlOutputter.setFormat(Format.getPrettyFormat());
+        xmlOutputter.output(xmlDocument, System.out);
     }
 
     private static void parseXMLwithJDOMParser() throws JDOMException, IOException {
