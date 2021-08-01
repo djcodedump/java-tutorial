@@ -60,12 +60,13 @@ public class Main {
     }
 
     private static void parseXMLwithJDOMParser() throws JDOMException, IOException {
-        Document document = new SAXBuilder().build(new File("xml/bookstore.xml"));
 
-        Element rootElement = document.getRootElement();
+        File file = new File("xml/bookstore.xml");
+        Document document = new SAXBuilder().build(file);
 
         Map<String, List<Element>> categoryMap = new HashMap<>();
 
+        Element rootElement = document.getRootElement();
         List<Element> books = rootElement.getChildren();
         for (Element book : books) {
             String category = book.getAttribute("category").getValue();
