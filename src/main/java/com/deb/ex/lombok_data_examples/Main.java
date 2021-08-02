@@ -1,5 +1,7 @@
 package com.deb.ex.lombok_data_examples;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -17,5 +19,6 @@ public class Main {
         System.out.println(loginData.authToken());
         System.out.println(loginData.userName());
         System.out.println(loginData);
+
     }
 }
