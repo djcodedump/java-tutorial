@@ -2,10 +2,11 @@ package com.deb.ex.logging_examples;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.LoggerConfig;
 
 /**
  * slf4j acts as an abstraction for other logging frameworks
- *
+ * <p>
  * log4j has three main components:
  * loggers
  * appenders
@@ -18,12 +19,8 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("This is Main");
-
         String name = "deba";
-
         logger.info("This is a Info message by {}", name);
-
         new LogPrint().doThis(name);
-
     }
 }

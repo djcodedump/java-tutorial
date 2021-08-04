@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<Configuration status="INFO" monitorInterval="30">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+<!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
+            <PatternLayout pattern="%highlight{%d{HH:mm:ss.SSS}}{ERROR=red} | %style{%-5p}{BG_Red} | %logger | %t | | %pid | %m%n"/>
         </Console>
     </Appenders>
     <Loggers>
-        <Root level="info">
+        <Logger name="com.deb.ex.logging_examples.LogPrint" level="TRACE" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.deb.ex.logging_examples.Main" level="TRACE" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Root level="ERROR">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
