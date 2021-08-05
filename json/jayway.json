@@ -1,24 +1,24 @@
 {
-  "tool": {
-    "jsonpath": {
-      "creator": {
-        "name": "Jayway Inc.",
-        "location": [
-          "Malmo",
-          "San Francisco",
-          "Helsingborg"
-        ]
+  "car": {
+    "color": "blue",
+    "price": "$20,000",
+    "wheels": [
+      {
+        "model": "X3X",
+        "location": "front-right"
+      },
+      {
+        "model": "X3K",
+        "location": "rear-right"
+      },
+      {
+        "model": "X3M",
+        "location": "front-left"
+      },
+      {
+        "model": "X9V",
+        "location": "rear-left"
       }
-    }
-  },
-  "book": [
-    {
-      "title": "Beginning JSON",
-      "price": 49.99
-    },
-    {
-      "title": "JSON at Work",
-      "price": 29.99
-    }
-  ]
+    ]
+  }
 }
