@@ -21,6 +21,8 @@ public class Main {
         System.out.println("This is Main");
         String name = "deba";
         logger.info("This is a Info message by {}", name);
+
         new LogPrint().doThis(name);
+
     }
 }
