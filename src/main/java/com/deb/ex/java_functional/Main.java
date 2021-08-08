@@ -31,11 +31,11 @@ public class Main {
 
         //usingSupplier();
 
-        usingOptionals();
+        //usingOptionals();
 
         //usingCombinatorPattern();
 
-        //usingFunctionalProg();
+        usingFunctionalProg();
 
 
 
