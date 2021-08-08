@@ -1,4 +1,4 @@
-package com.deb.ex.json_examples;
+package com.deb.ex.json_jackson_examples;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

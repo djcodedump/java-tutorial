@@ -4,6 +4,7 @@ import lombok.ToString;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -30,7 +31,33 @@ public class Main {
 
         //usingSupplier();
 
-        usingFuctionalProg();
+        usingOptionals();
+
+        //usingCombinatorPattern();
+
+        //usingFunctionalProg();
+
+
+
+
+    }
+
+    private static void usingOptionals() {
+        /*
+        Object  testVal = Optional.ofNullable("try me")
+                                //.orElseGet(() -> "default value")
+                                  .orElseThrow(()-> new IllegalStateException("the value is null"));
+
+        System.out.println(testVal);
+
+        Optional.ofNullable("myEmail")
+                .ifPresentOrElse((email -> System.out.println("Sending email to "+ email)),
+                        ()->{
+                            System.out.println("Cannot send email!");
+                        });
+         */
+
+
 
 
     }
@@ -64,13 +91,24 @@ public class Main {
         int multiply = multiplyByTenFunction.apply(2);
 
         Function<Integer, Integer> resultFunction = incrementByOneFunction.andThen(multiplyByTenFunction);
-
         System.out.println(resultFunction.apply(1));
+
+        //passing Function as method argument
+        hello("Debajyoti", null, val-> System.out.println("lastname not provided for "+ val));
 
         //BiFunction
         BiFunction<Integer, Integer, Integer> incAndMultiplyBiFunction = (x, y) -> (x + 1) * y;
         System.out.println(incAndMultiplyBiFunction.apply(1, 10));
 
+    }
+
+    public static void hello(String firstName, String lastName, Consumer<String> callback){
+        System.out.println(firstName);
+        if(lastName != null){
+            System.out.println(lastName);
+        }else{
+            callback.accept(firstName);
+        }
     }
 
     public static int increment(int num) {
@@ -97,20 +135,35 @@ public class Main {
 
     }
 
-    private static void usingFuctionalProg() {
+    private static void usingFunctionalProg() {
         List<Person> people = List.of(
                 new Person("John", MALE),
                 new Person("Maria", FEMALE),
                 new Person("Alisha", FEMALE),
                 new Person("Alex", MALE),
-                new Person("Alice", FEMALE)
+                new Person("Alice", FEMALE),
+                new Person("Teacher", COMMON),
+                new Person("Parent", COMMON)
         );
 
-        List<Person> females = people.stream()
-                .filter(p -> p.gender.equals(FEMALE))
-                .collect(Collectors.toList());
+        Function<Person, String> personStringFunction = p -> p.name;
+        ToIntFunction<String> length = String::length;
+        IntConsumer println = System.out::println;
 
-        females.forEach(System.out::println);
+        people.stream()
+                .map(personStringFunction)
+                .mapToInt(length)
+                //.collect(Collectors.toSet())
+                .forEach(println);
+
+        System.out.println(people.stream()
+                                 .allMatch(person -> person.gender.equals(COMMON)));
+
+        System.out.println(people.stream()
+                                 .anyMatch(person -> person.gender.equals(MALE)));
+
+        System.out.println(people.stream()
+                                 .anyMatch(person -> person.gender.equals(NEUTAR)));
     }
 
 
@@ -126,6 +179,6 @@ public class Main {
     }
 
     enum Gender {
-        MALE, FEMALE;
+        MALE, FEMALE, COMMON, NEUTAR;
     }
 }

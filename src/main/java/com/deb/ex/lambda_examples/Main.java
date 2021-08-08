@@ -38,7 +38,6 @@ public class Main {
         System.out.println("myComparator: " + myComparator.compare("hello World", "hello"));
 
         //With Lambda
-
         Comparator<String> myComparatorLambda =
                 (String o1, String o2) -> {
                     return  o1.compareTo(o2);

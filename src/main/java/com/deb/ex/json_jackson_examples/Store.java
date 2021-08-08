@@ -1,4 +1,4 @@
-package com.deb.ex.json_examples;
+package com.deb.ex.json_jackson_examples;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
